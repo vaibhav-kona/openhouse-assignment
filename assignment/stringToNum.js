@@ -14,7 +14,7 @@ const CHAR_CODE_VS_NUMBER_MAPPING = {
   57: 9,
 }
 
-const convertStringToJs = function (str) {
+const convertStringToNum = function (str) {
   let keepTraversing = true;
   let numbers = [];
 
@@ -27,11 +27,9 @@ const convertStringToJs = function (str) {
     if (valCharCode < NUMBER_STARTING_CHAR_CODE || valCharCode > NUMBER_ENDING_CHAR_CODE) {
       keepTraversing = false;
     } else {
-      // console.log("val : ", val, val.charCodeAt(0));
       numbers.push(valCharCode);
     }
   }
-  // console.log('numbers : ', numbers);
 
   // Construct the number from the individual char codes
   let mul = 1;
@@ -41,16 +39,7 @@ const convertStringToJs = function (str) {
     mul *= 10;
   }
 
-  // console.log('finalNum : ', finalNum);
-
   return finalNum;
 }
 
-let str = "42";
-// let str = "0";
-// let str = "42a";
-// let str = "42a35";
-// let str = "abc42";
-
-
-console.log(convertStringToJs(str));
+module.exports = convertStringToNum;
